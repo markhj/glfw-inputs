@@ -1,0 +1,6 @@
+#ifndef GLFW_INPUTS_TESTS_INCLUDE_HPP
+#define GLFW_INPUTS_TESTS_INCLUDE_HPP
+
+#include <GLFW/glfw3.h>
+
+#endif
