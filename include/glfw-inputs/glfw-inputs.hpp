@@ -25,6 +25,14 @@ namespace GLFW_Inputs {
     const std::regex regexSignalName(R"(^[a-z]+(_[a-z]+){0,}$)");
 
     /**
+     * Received signal
+     */
+    struct ReceivedSignal {
+        std::string signal;
+        std::optional<unsigned int> userId;
+    };
+
+    /**
      * Input Event
      *
      * Mostly used internally, as a streamlined way for GLFW-driven
@@ -507,7 +515,9 @@ namespace GLFW_Inputs {
             std::string signal = mappedInputEvent.value().signal;
             for (auto item : callbacks) {
                 if (item.first == signal) {
-                    item.second();
+                    item.second({
+                        .signal = signal,
+                    });
                     return;
                 }
             }
@@ -621,7 +631,7 @@ namespace GLFW_Inputs {
          * The callback can be a lambda function, or a reference
          * to a function or class method
          */
-        void listenFor(std::string signal, std::function<void()> callback)
+        void listenFor(const std::string& signal, std::function<void(ReceivedSignal)> callback)
         {
             callbacks[signal] = std::move(callback);
         }
@@ -629,7 +639,7 @@ namespace GLFW_Inputs {
     private:
         GLFWwindow *window;
 
-        static std::map<std::string, std::function<void()>> callbacks;
+        static std::map<std::string, std::function<void(ReceivedSignal)>> callbacks;
 
         static Keyboard* keyboard;
         static Mouse* mouse;
@@ -638,7 +648,7 @@ namespace GLFW_Inputs {
     };
 
     // Initialization of static class properties
-    std::map<std::string, std::function<void()>> Manager::callbacks = {};
+    std::map<std::string, std::function<void(ReceivedSignal)>> Manager::callbacks = {};
     Keyboard* Manager::keyboard = nullptr;
     Mouse* Manager::mouse = nullptr;
     std::vector<Joystick> Manager::joysticks = {};
