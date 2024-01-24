@@ -9,18 +9,29 @@ namespace GLFW_Inputs {
      * Motion Surface
      *
      * Describes which control surface has been moved
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/misc/motion-surface/
      */
     enum MotionSurface {
-        Cursor,
+        MouseCursor,
         MouseWheel,
+
+        JoystickAxes,
+        JoystickRotation,
+        JoystickHat,
     };
 
     /**
      * Event
      *
      * Used to indicate the current state of a button.
-     * ButtonPress and ButtonRelease should be thought of as
-     * "just pressed" and "just released"
+     * ButtonPress and ButtonRelease should be thought of as "just pressed" and "just released"
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/misc/events/
+     *      Primary documentation about events
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/getting-started/button-down-states/
+     *      Documentation specifically about the ButtonDown state
      */
     enum class Event {
         ButtonPress,
@@ -32,6 +43,8 @@ namespace GLFW_Inputs {
      * Input
      *
      * List of keyboard, mouse and joystick button-based inputs
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/misc/enums-inputs/
      */
     enum Input {
         // Special keys
@@ -172,6 +185,10 @@ namespace GLFW_Inputs {
         MouseButton6 = GLFW_MOUSE_BUTTON_6,
         MouseButton7 = GLFW_MOUSE_BUTTON_7,
         MouseButton8 = GLFW_MOUSE_BUTTON_8,
+
+        // Joystick
+        JoystickConnected = GLFW_CONNECTED,
+        JoystickDisconnected = GLFW_DISCONNECTED,
     };
 };
 

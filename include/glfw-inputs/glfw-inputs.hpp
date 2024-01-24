@@ -9,6 +9,13 @@
 #include <utility>
 #include <regex>
 
+/**
+ * GLFW Inputs
+ * Main header file
+ *
+ * @see https://glfw-inputs.readthedocs.io/en/latest/getting-started/button-down-states/
+ *      Documentation
+ */
 namespace GLFW_Inputs {
 
     /**
@@ -22,6 +29,8 @@ namespace GLFW_Inputs {
      *
      * Mostly used internally, as a streamlined way for GLFW-driven
      * callbacks to communicate seamlessly with the Manager and Control classes
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/misc/events/
      */
     struct InputEvent {
         Event event;
@@ -33,6 +42,8 @@ namespace GLFW_Inputs {
      *
      * Associates an input event with a signal
      * Used in ControlMapping classes
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/misc/events/
      */
     struct MappedInputEvent {
         InputEvent inputEvent;
@@ -44,6 +55,8 @@ namespace GLFW_Inputs {
      *
      * Used by MotionControl classes, and among other things
      * are part of the MotionEvent's position and relative properties
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/misc/position/
      */
     struct Position {
         double x, y;
@@ -56,6 +69,8 @@ namespace GLFW_Inputs {
      * To be passed to library consumer callbacks with information
      * about the movements of various control surfaces such as cursor position,
      * mouse wheel and joystick axes
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/misc/motion-event/
      */
     struct MotionEvent {
         std::optional<Position> position, relative;
@@ -70,6 +85,16 @@ namespace GLFW_Inputs {
      */
     class ControlMapping {
     public:
+
+        /**
+         * On (register an event)
+         *
+         * Specify on the mapping how a specific input event should
+         * map to a given signal
+         *
+         * @see https://glfw-inputs.readthedocs.io/en/latest/getting-started/basic-usage/
+         *      Guide on how to use the mapping feature
+         */
         void on(Event event, Input input, std::string signal)
         {
             std::smatch matches;
@@ -87,6 +112,9 @@ namespace GLFW_Inputs {
             });
         }
 
+        /**
+         * XXXXXXXXXXXXXXXXXXXX
+         */
         [[nodiscard]] std::optional<MappedInputEvent> getEvent(InputEvent inputEvent) const
         {
             for (MappedInputEvent mappedInputEvent : mappedInputEvents) {
@@ -116,6 +144,8 @@ namespace GLFW_Inputs {
 
     /**
      * Keyboard mapping
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/controls/keyboard/
      */
     class KeyboardMapping : public ControlMapping {
 
@@ -123,8 +153,17 @@ namespace GLFW_Inputs {
 
     /**
      * Mouse mapping
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/controls/mouse/
      */
     class MouseMapping : public MotionControlMapping {
+
+    };
+
+    /**
+     * Joystick mapping
+     */
+    class JoystickMapping : public MotionControlMapping {
 
     };
 
@@ -167,6 +206,8 @@ namespace GLFW_Inputs {
      *
      * An extension of the Control class which includes motion surfaces
      * such as the mouse cursor, mouse wheel and joystick axes
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/getting-started/motion-controls/
      */
     class MotionControl : public Control {
     public:
@@ -224,7 +265,41 @@ namespace GLFW_Inputs {
     };
 
     /**
+     * Supports Multiple Devices
+     *
+     * Trait for control types with support for multiple
+     * devices at the same time such as joysticks and gamepads
+     */
+    class SupportsMultipleDevices {
+    public:
+        explicit SupportsMultipleDevices(int id) : deviceId(id) { }
+
+        int getId() const
+        {
+            return deviceId;
+        }
+
+    protected:
+        int deviceId;
+
+    };
+
+    /**
+     * Supports Dynamic Connectivity
+     *
+     * Interface for control types which have dynamic support of devices
+     * which can be connected and disconnected on-the-fly
+     */
+    class SupportsDynamicConnectivity {
+    public:
+        virtual bool isConnected() = 0;
+
+    };
+
+    /**
      * Keyboard
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/controls/keyboard/
      */
     class Keyboard : public Control {
 
@@ -232,8 +307,80 @@ namespace GLFW_Inputs {
 
     /**
      * Mouse
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/controls/mouse/
      */
     class Mouse : public MotionControl {
+
+    };
+
+    /**
+     * Joystick
+     */
+    class Joystick : public MotionControl,
+            public SupportsMultipleDevices,
+            public SupportsDynamicConnectivity {
+    public:
+        explicit Joystick(int id) : SupportsMultipleDevices(id)
+        {
+            // We need to store device name immediately, because
+            // it cannot be retrieved when disconnected, which is a typical
+            // scenario where you need to know it
+            deviceName = glfwGetJoystickName(getId());
+        }
+
+        /**
+         * Returns true if the joystick associated with this connection
+         * is connected
+         *
+         * @return bool
+         */
+        bool isConnected() override
+        {
+            return glfwJoystickPresent(getId());
+        }
+
+        /**
+         * Retrieve the device name (as stored upon creation of the joystick
+         * instance)
+         *
+         * @return std::string
+         */
+        [[nodiscard]] std::string getDeviceName() const
+        {
+            return deviceName;
+        }
+
+    protected:
+        std::string deviceName;
+
+    };
+
+    /**
+     * Joystick Manager
+     *
+     * A class which assists with managing multiple joystick/gamepad
+     * devices within the same application
+     */
+    class JoystickManager {
+    public:
+        [[nodiscard]] std::vector<Joystick> createJoystickInstances() const
+        {
+            std::vector<Joystick> list;
+            for (int i = 0; i <= maxJoysticks - 1; i++) {
+                if (glfwJoystickPresent(GLFW_JOYSTICK_1 + i)) {
+                    list.emplace_back(GLFW_JOYSTICK_1 + i);
+                }
+            }
+            return list;
+        }
+
+    private:
+        /**
+         * The maximum joysticks which can be handled with GLFW
+         * This is based on the existence of GLFW_JOYSTICK_16 constant
+         */
+        unsigned int maxJoysticks = 16;
 
     };
 
@@ -258,6 +405,24 @@ namespace GLFW_Inputs {
             glfwSetMouseButtonCallback(window, Manager::mouseButtonCallback);
             glfwSetCursorPosCallback(window, Manager::mouseMoveCallback);
             glfwSetScrollCallback(window, Manager::mouseWheelCallback);
+
+            // Joysticks and gamepads
+            glfwSetJoystickCallback(Manager::joystickConnectionCallback);
+        }
+
+        /**
+         * GLFW: Joystick callback
+         *
+         * This callback detects when joysticks are connected or
+         * disconnected.
+         */
+        static void joystickConnectionCallback(int jid, int event)
+        {
+            if (event == GLFW_CONNECTED) {
+                // Submit callback event (according to mapping)
+            } else if (event == GLFW_DISCONNECTED) {
+                // Trigger disconnection callback (according to mapping)
+            }
         }
 
         /**
@@ -272,7 +437,7 @@ namespace GLFW_Inputs {
             mouse->positionChanged({
                 .x = x,
                 .y = y,
-            }, MotionSurface::Cursor);
+            }, MotionSurface::MouseCursor);
         }
 
         /**
@@ -392,6 +557,47 @@ namespace GLFW_Inputs {
         {
             processTick(keyboard);
             processTick(mouse);
+
+            processJoysticks();
+        }
+
+        void processJoysticks()
+        {
+            // The minimum amount of movement before recognition motion
+            float joystickAxesTolerance = 0.001;
+
+            for (Joystick joystick : joysticks) {
+                if (!joystick.isConnected()) {
+                    continue;
+                }
+
+                int bCount;
+                const unsigned char *buttons = glfwGetJoystickButtons(joystick.getId(), &bCount);
+
+                for (int i = 0; i <= bCount; i++) {
+                    if (buttons[i] == GLFW_PRESS) {
+                        std::cout << "button " << i << std::endl;
+                    }
+                }
+
+                int countAxes;
+                const float *axes = glfwGetJoystickAxes(joystick.getId(), &countAxes);
+                if (axes) {
+                    for (int a = 0; a < countAxes; a++) {
+                        if (abs(axes[a]) > joystickAxesTolerance) {
+                            std::cout << countAxes << " - " << axes[a] << std::endl;
+                        }
+                    }
+                    // If any movement detected
+//                    if (joystick.mapping.has_value() && joystick.mapping.value()->onMove.has_value()) {
+//                        joystick.mapping.value()->onMove.value()({
+//                            .position = Position {},
+//                            .relative = Position {},
+//                            .surface = MotionSurface::JoystickAxisX,
+//                        });
+//                    }
+                }
+            }
         }
 
         void setKeyboard(Keyboard *to)
@@ -402,6 +608,11 @@ namespace GLFW_Inputs {
         void setMouse(Mouse *to)
         {
             mouse = to;
+        }
+
+        void setJoysticks(std::vector<Joystick> to)
+        {
+            joysticks = to;
         }
 
         /**
@@ -422,6 +633,7 @@ namespace GLFW_Inputs {
 
         static Keyboard* keyboard;
         static Mouse* mouse;
+        static std::vector<Joystick> joysticks;
 
     };
 
@@ -429,6 +641,7 @@ namespace GLFW_Inputs {
     std::map<std::string, std::function<void()>> Manager::callbacks = {};
     Keyboard* Manager::keyboard = nullptr;
     Mouse* Manager::mouse = nullptr;
+    std::vector<Joystick> Manager::joysticks = {};
 
 }
 
