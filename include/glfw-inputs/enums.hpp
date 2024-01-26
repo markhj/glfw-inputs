@@ -12,13 +12,20 @@ namespace GLFW_Inputs {
      *
      * @see https://glfw-inputs.readthedocs.io/en/latest/misc/motion-surface/
      */
-    enum MotionSurface {
+    enum class MotionSurface {
         MouseCursor,
         MouseWheel,
 
-        JoystickAxes,
-        JoystickRotation,
-        JoystickHat,
+        JoystickAxesXY,
+        JoystickRotationXY,
+    };
+
+    /**
+     * Device Event
+     */
+    enum class DeviceEvent {
+        Connected,
+        Disconnected,
     };
 
     /**
@@ -186,9 +193,20 @@ namespace GLFW_Inputs {
         MouseButton7 = GLFW_MOUSE_BUTTON_7,
         MouseButton8 = GLFW_MOUSE_BUTTON_8,
 
-        // Joystick
-        JoystickConnected = GLFW_CONNECTED,
-        JoystickDisconnected = GLFW_DISCONNECTED,
+        // Joystick & Gamepad
+        JoystickButton1 = GLFW_JOYSTICK_1,
+        JoystickButton2 = GLFW_JOYSTICK_2,
+        JoystickButton3 = GLFW_JOYSTICK_3,
+        JoystickButton4 = GLFW_JOYSTICK_4,
+        JoystickButton5 = GLFW_JOYSTICK_5,
+        JoystickButton6 = GLFW_JOYSTICK_6,
+        JoystickButton7 = GLFW_JOYSTICK_7,
+        JoystickButton8 = GLFW_JOYSTICK_8,
+        JoystickButton9 = GLFW_JOYSTICK_9,
+        JoystickButton10 = GLFW_JOYSTICK_10,
+        JoystickButton11 = GLFW_JOYSTICK_11,
+        JoystickButton12 = GLFW_JOYSTICK_12,
+
     };
 };
 
