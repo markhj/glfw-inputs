@@ -22,6 +22,8 @@ namespace GLFW_Inputs {
 
     /**
      * Device Event
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/misc/events/
      */
     enum class DeviceEvent {
         Connected,

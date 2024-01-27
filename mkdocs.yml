@@ -11,10 +11,10 @@ nav:
     - Basic usage: getting-started/basic-usage.md
     - Button down states: getting-started/button-down-states.md
     - Motion controls: getting-started/motion-controls.md
-    - Swapping mappings: getting-started/swapping-mappings.md
     - Working with joysticks: getting-started/joysticks.md
   - Digging deeper:
     - Control mapping: controls/control-mapping.md
+    - Swapping mappings: getting-started/swapping-mappings.md
     - Managing multiple joysticks: controls/multiple-joysticks.md
     - Input Manager: controls/input-manager.md
   - Controls:
@@ -24,6 +24,7 @@ nav:
   - Appendices:
     - List of inputs: misc/enums-inputs.md
     - List of events: misc/events.md
+    - Control traits: misc/control-traits.md
     - MotionEvent: misc/motion-event.md
     - MotionSurface: misc/motion-surface.md
     - Position: misc/position.md

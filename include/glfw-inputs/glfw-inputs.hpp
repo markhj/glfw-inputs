@@ -51,7 +51,12 @@ namespace GLFW_Inputs {
     };
 
     /**
+     * Mapped Device Event
      *
+     * Associates a device event (such as a joystick being connected or disconnected)
+     * with a signal. Used in ControlMapping classes.
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/misc/events/
      */
     struct MappedDeviceEvent {
         DeviceEvent deviceEvent;
@@ -90,6 +95,8 @@ namespace GLFW_Inputs {
      *
      * The base for mapping classes, which makes it possible to
      * specify and get events
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/controls/control-mapping/
      */
     class ControlMapping {
     public:
@@ -134,7 +141,13 @@ namespace GLFW_Inputs {
         }
 
         /**
+         * Get Event (InputEvent)
          *
+         * Search the mapping for a MappedInputEvent which
+         * matches the provided InputEvent.
+         *
+         * @param InputEvent inputEvent
+         * @return std::optional<MappedInputEvent>
          */
         [[nodiscard]] std::optional<MappedInputEvent> getEvent(InputEvent inputEvent) const
         {
@@ -148,7 +161,13 @@ namespace GLFW_Inputs {
         }
 
         /**
+         * Get Event (DeviceEvent)
          *
+         * Search the provided callbacks for a MappedDeviceEvent
+         * which matches the provided DeviceEvent
+         *
+         * @param DeviceEvent deviceEvent
+         * @return std::optional<MappedDeviceEvent>
          */
         [[nodiscard]] std::optional<MappedDeviceEvent> getEvent(DeviceEvent deviceEvent) const
         {
@@ -171,6 +190,8 @@ namespace GLFW_Inputs {
      * Motion Control Mapping
      *
      * ControlMapping adapted for MotionControl classes
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/controls/control-mapping/
      */
     class MotionControlMapping : public ControlMapping {
     public:
@@ -198,6 +219,8 @@ namespace GLFW_Inputs {
 
     /**
      * Joystick mapping
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/controls/joystick/
      */
     class JoystickMapping : public MotionControlMapping {
 
@@ -305,6 +328,8 @@ namespace GLFW_Inputs {
      *
      * Trait for control types with support for multiple
      * devices at the same time such as joysticks and gamepads
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/misc/control-traits/
      */
     class SupportsMultipleDevices {
     public:
@@ -327,6 +352,8 @@ namespace GLFW_Inputs {
      *
      * Interface for control types which have dynamic support of devices
      * which can be connected and disconnected on-the-fly
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/misc/control-traits/
      */
     class SupportsDynamicConnectivity {
 
@@ -352,6 +379,8 @@ namespace GLFW_Inputs {
 
     /**
      * Joystick
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/controls/joystick/
      */
     class Joystick : public MotionControl,
             public SupportsMultipleDevices,
@@ -397,6 +426,8 @@ namespace GLFW_Inputs {
      *
      * A class which assists with managing multiple joystick/gamepad
      * devices within the same application
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/controls/multiple-joysticks/
      */
     class JoystickManager {
     public:
@@ -422,6 +453,8 @@ namespace GLFW_Inputs {
 
     /**
      * Received signal
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/misc/received-signal/
      */
     struct ReceivedSignal {
         std::string signal;
@@ -437,6 +470,8 @@ namespace GLFW_Inputs {
      *
      * Class is also responsible for listening for signals, and exposing the
      * option to receive those signals to the library consumer.
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/controls/input-manager/
      */
     class Manager {
     public:
@@ -638,6 +673,11 @@ namespace GLFW_Inputs {
             }
         }
 
+        /**
+         * Tick
+         *
+         * @return void
+         */
         void tick()
         {
             processTick(keyboard);
