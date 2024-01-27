@@ -28,3 +28,4 @@ nav:
     - MotionEvent: misc/motion-event.md
     - MotionSurface: misc/motion-surface.md
     - Position: misc/position.md
+    - ReceivedSignal: misc/received-signal.md
