@@ -17,6 +17,7 @@ nav:
     - Swapping mappings: getting-started/swapping-mappings.md
     - Managing multiple joysticks: controls/multiple-joysticks.md
     - Input Manager: controls/input-manager.md
+    - Messaging: misc/messaging.md
   - Controls:
     - Keyboard: controls/keyboard.md
     - Mouse: controls/mouse.md

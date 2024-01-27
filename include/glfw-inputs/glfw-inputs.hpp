@@ -94,6 +94,71 @@ namespace GLFW_Inputs {
     };
 
     /**
+     * Messaging
+     *
+     * Used to streamline the processing of warnings and errors
+     *
+     * @see https://glfw-inputs.readthedocs.io/en/latest/misc/messaging/
+     */
+    class Messaging {
+    public:
+        static MessagingMethod warnings;
+        static MessagingMethod errors;
+
+    protected:
+
+        /**
+         * Submit a warning
+         *
+         * To be used internally by the library
+         *
+         * @param std::string message
+         * @return void
+         */
+        static void warn(const std::string& message)
+        {
+            displayMessage(message, warnings);
+        }
+
+        /**
+         * Submit an error
+         *
+         * To be used internally by the library
+         *
+         * @param std::string message
+         * @return void
+         */
+        static void error(const std::string message)
+        {
+            displayMessage(message, errors);
+        }
+
+        /**
+         * General method to handle the display of a message
+         *
+         * @param const std::string& message
+         * @param MessagingMethod method
+         * @return void
+         */
+        static void displayMessage(const std::string& message, MessagingMethod method)
+        {
+            switch (method) {
+                case MessagingMethod::Silent:
+                    break;
+                case MessagingMethod::StdCout:
+                    std::cout << message << std::endl;
+                    break;
+                case MessagingMethod::StdCerr:
+                    std::cerr << message << std::endl;
+                    break;
+                case MessagingMethod::Exception:
+                    throw std::runtime_error(message);
+            }
+        }
+
+    };
+
+    /**
      * Control Mapping
      *
      * The base for mapping classes, which makes it possible to
@@ -101,7 +166,7 @@ namespace GLFW_Inputs {
      *
      * @see https://glfw-inputs.readthedocs.io/en/latest/controls/control-mapping/
      */
-    class ControlMapping {
+    class ControlMapping : public Messaging {
     public:
 
         /**
@@ -123,7 +188,7 @@ namespace GLFW_Inputs {
             std::smatch matches;
             std::string target = signal;
             if (!std::regex_search(target, matches, regexSignalName)) {
-                std::cout << "Signal name not compliant: " << signal << std::endl;
+                error("Signal name not compliant: " + signal);
             }
 
             mappedInputEvents.push_back({
@@ -545,7 +610,7 @@ namespace GLFW_Inputs {
      *
      * @see https://glfw-inputs.readthedocs.io/en/latest/controls/input-manager/
      */
-    class Manager {
+    class Manager : public Messaging {
     public:
 
         /**
@@ -626,7 +691,7 @@ namespace GLFW_Inputs {
                 }
             }
 
-            std::cout << "Leaked signal (not handled): " << signal << std::endl;
+            warn("Leaked signal (not handled): " + signal);
         }
 
         /**
@@ -744,7 +809,7 @@ namespace GLFW_Inputs {
                 }
             }
 
-            std::cout << "Leaked signal (not handled): " << signal << std::endl;
+            warn("Leaked signal (not handled): " + signal);
         }
 
         /**
@@ -958,6 +1023,9 @@ namespace GLFW_Inputs {
     Keyboard* Manager::keyboard = nullptr;
     Mouse* Manager::mouse = nullptr;
     std::vector<Joystick*> Manager::joysticks = {};
+
+    MessagingMethod Messaging::warnings = MessagingMethod::StdCout;
+    MessagingMethod Messaging::errors = MessagingMethod::Exception;
 
 }
 

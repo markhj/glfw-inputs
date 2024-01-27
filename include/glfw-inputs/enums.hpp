@@ -6,6 +6,18 @@
 namespace GLFW_Inputs {
 
     /**
+     * Messaging Method
+     *
+     * Defines how Messaging class should handle warnings and errors
+     */
+    enum class MessagingMethod {
+        Silent,
+        StdCout,
+        StdCerr,
+        Exception,
+    };
+
+    /**
      * Motion Surface
      *
      * Describes which control surface has been moved
