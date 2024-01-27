@@ -3,6 +3,7 @@
 ![GitHub Tag](https://img.shields.io/github/v/tag/markhj/glfw-inputs?label=Version)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 [![Documentation Status](https://readthedocs.org/projects/cpp-collision-detection/badge/?version=latest)](https://cpp-collision-detection.readthedocs.io/en/latest/?badge=latest)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9e846834d1a44324a99f026389cc547d)](https://app.codacy.com/gh/markhj/glfw-inputs/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 **GLFW Inputs** is a library designed to streamline and abstract various control interfaces
 for C++'s GLFW library, often used for OpenGL applications.
