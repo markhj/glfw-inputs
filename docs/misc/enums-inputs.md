@@ -53,6 +53,6 @@ List of all the inputs in the ``Input`` enum class.
 | ``MouseButton1`` - ``MouseButton8`` | Numbered mouse buttons (not available on all mice)         |
 
 ## Joystick
-| Enum     | Description |
-|----------|-------------|
-| ``XXXX`` | XXX         |
+| Enum                                     | Description             |
+|------------------------------------------|-------------------------|
+| ``JoystickButton1`` - ``JoystickButton12`` | Joystick buttons 1 - 12 |

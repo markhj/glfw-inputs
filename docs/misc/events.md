@@ -12,6 +12,17 @@ Enumerator used to describe a button state (whether keyboard, mouse or joystick)
 Please read [Button down state](../getting-started/button-down-states.md) regarding
 use of ``ButtonDown``.
 
+## ``DeviceEvent``
+Used to describe hardware-specific events of a device.
+
+| Enumeration                   | Description                                                              |
+|-------------------------------|--------------------------------------------------------------------------|
+| ``DeviceEvent::Disconnected`` | When a device is physically plugged out (or wireless connection is lost) |
+| ``DeviceEvent::Connected``    | When a device is (re-)connected                                          |
+
+> ``DeviceEvent::Connected`` does _**not**_ fire, when a device is already connected as the application launches.
+> In other words, you cannot count on this event to do initial setup work.
+
 ## ``InputEvent``
 _**Only used internally in the library**_
 
@@ -24,3 +35,8 @@ _**Only used internally in the library**_
 A combination of event, input and signal, used to store how inputs map
 to signals.
 
+## ``MappedDeviceEvent``
+_**Only used internally in the library**_
+
+A combination of ``DeviceEvent`` and signal, used to store how hardware-specific events map
+to signals.

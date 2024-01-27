@@ -15,7 +15,7 @@ whether in-game or in main menu.
 
 🅰️ **Button states** for all controls to determine if a button is just pressed, held down or just released.
 
-📐 **Abstracted** such that every control type have a completely streamlined and predictable usage
+📐 **Abstracted** such that every control type have streamlined and predictable usage
 
 # Requirements 🌿
 - C++ 17 or higher*
@@ -27,6 +27,14 @@ whether in-game or in main menu.
 # Documentation 📖
 You can read about installation, usage and more on:
 https://glfw-inputs.readthedocs.io/en/latest/
+
+# Roadmap 🚗
+Features that will be implemented in the future:
+
+- Sample apps
+- Support for key combinations (on all control types)
+- Manage cursor position and visibility
+- Improved mapping of joystick buttons and axes
 
 # Host documentation locally ✏️
 To run host the documentation locally, you must have Python and Mkdocs already installed.
