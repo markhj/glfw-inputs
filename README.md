@@ -36,10 +36,10 @@ https://glfw-inputs.readthedocs.io/en/latest/
 # 🚗 Roadmap
 Features that will be implemented in the future:
 
-*  Sample apps
-*  Support for key combinations (on all control types)
-*  Manage cursor position and visibility
-*  Improved mapping of joystick buttons and axes
+*   Sample apps
+*   Support for key combinations (on all control types)
+*   Manage cursor position and visibility
+*   Improved mapping of joystick buttons and axes
 
 # ✏️ Host documentation locally
 To run host the documentation locally, you must have Python and Mkdocs already installed.
@@ -58,4 +58,4 @@ python -m mkdocs serve
 
 # 📜 Notes
 
-*  Under the hood, some properties and methods are static. As long as you follow the manual, this can be ignored. This is due to how GLFW works. But in practice the classes can be used as instantiable objects.
+*   Under the hood, some properties and methods are static. As long as you follow the manual, this can be ignored. This is due to how GLFW works. But in practice the classes can be used as instantiable objects.
