@@ -843,13 +843,13 @@ namespace GLFW_Inputs {
          * @param MotionControl* control
          * @return void
          */
-        void processTick(MotionControl *control)
+        void processTick(MotionControl *motionControl)
         {
-            if (!control) {
+            if (!motionControl) {
                 return;
             }
-            for (auto input : control->getButtonsDown()) {
-                handleMappedInputEvent(control->mapping.value()->getEvent({
+            for (auto input : motionControl->getButtonsDown()) {
+                handleMappedInputEvent(motionControl->mapping.value()->getEvent({
                     .event = Event::ButtonDown,
                     .input = static_cast<Input>(input),
                 }));
