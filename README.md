@@ -24,9 +24,9 @@ whether in-game or in main menu.
 # 🌿 Requirements
 GLFW Inputs require:
 
-*  C++ 17 or higher*
-*  CMake 3.26 or higher 
-*  GLFW3
+  * C++ 17 or higher*
+  * CMake 3.26 or higher 
+  * GLFW3
 
 *) _Due to use of ``std::optional`` versions prior to C++ 17 won't work_
 
