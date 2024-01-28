@@ -3,7 +3,6 @@
 ![GitHub Tag](https://img.shields.io/github/v/tag/markhj/glfw-inputs?label=Version)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 [![Documentation Status](https://readthedocs.org/projects/cpp-collision-detection/badge/?version=latest)](https://cpp-collision-detection.readthedocs.io/en/latest/?badge=latest)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9e846834d1a44324a99f026389cc547d)](https://app.codacy.com/gh/markhj/glfw-inputs/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 **GLFW Inputs** is a library designed to streamline and abstract various control interfaces
 for C++'s GLFW library, often used for OpenGL applications.
@@ -23,9 +22,9 @@ whether in-game or in main menu.
 📐 **Abstracted** such that every control type have streamlined and predictable usage
 
 # Requirements 🌿
-- C++ 17 or higher*
-- CMake 3.26 or higher
-- GLFW3
+-  C++ 17 or higher*
+-  CMake 3.26 or higher
+-  GLFW3
 
 *) _Due to use of ``std::optional`` versions prior to C++ 17 won't work_
 
@@ -36,10 +35,10 @@ https://glfw-inputs.readthedocs.io/en/latest/
 # Roadmap 🚗
 Features that will be implemented in the future:
 
-- Sample apps
-- Support for key combinations (on all control types)
-- Manage cursor position and visibility
-- Improved mapping of joystick buttons and axes
+-  Sample apps
+-  Support for key combinations (on all control types)
+-  Manage cursor position and visibility
+-  Improved mapping of joystick buttons and axes
 
 # Host documentation locally ✏️
 To run host the documentation locally, you must have Python and Mkdocs already installed.
@@ -57,4 +56,4 @@ python -m mkdocs serve
 ````
 
 # Notes 📜
-- Under the hood, some properties and methods are static. As long as you follow the manual, this can be ignored. This is due to how GLFW works. But in practice the classes can be used as instantiable objects.
+-  Under the hood, some properties and methods are static. As long as you follow the manual, this can be ignored. This is due to how GLFW works. But in practice the classes can be used as instantiable objects.

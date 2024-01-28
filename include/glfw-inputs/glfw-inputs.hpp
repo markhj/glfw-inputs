@@ -128,7 +128,7 @@ namespace GLFW_Inputs {
          * @param std::string message
          * @return void
          */
-        static void error(const std::string message)
+        static void error(const std::string& message)
         {
             displayMessage(message, errors);
         }
@@ -987,7 +987,7 @@ namespace GLFW_Inputs {
          * @param std::vector<Joystick*> to
          * @return void
          */
-        void setJoysticks(std::vector<Joystick*> to)
+        void setJoysticks(const std::vector<Joystick*>& to)
         {
             joysticks = to;
         }
