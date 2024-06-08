@@ -1,12 +1,11 @@
 #include <iostream>
 
-#include <GLFW/glfw3.h>
 #include "glfw-inputs.hpp"
+#include <GLFW/glfw3.h>
 
 using namespace GLFW_Inputs;
 
-int main()
-{
+int main() {
     if (!glfwInit()) {
         std::cerr << "Failed to initialize GLFW" << std::endl;
         return 1;
@@ -25,7 +24,7 @@ int main()
     keyboard.mapping = &keyboardMapping;
     manager.setKeyboard(&keyboard);
 
-    manager.listenFor("exit", [&](const ReceivedSignal& receivedSignal) {
+    manager.listenFor("exit", [&](const ReceivedSignal &receivedSignal) {
         keepOpen = false;
     });
 
