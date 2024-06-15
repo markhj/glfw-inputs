@@ -4,7 +4,8 @@ In this chapter, we cover the basics of working with joysticks.
 Look at the bottom to learn where you can explore the topic deeper.
 
 ## Joystick manager 🎮
-First of all, it's important to recognize that multiple joysticks and gamepads can 
+
+First of all, it's important to recognize that multiple joysticks and gamepads can
 connected simultaneously. It's also possible they can be disconnected and reconnected
 on-the-fly.
 
@@ -16,9 +17,11 @@ JoystickManager joystickManager;
 std::vector<Joystick> joysticks = joystickManager.createJoystickInstances();
 ````
 
-To learn more about managing multiple devices at once, please read the chapter: [Managing multiple joysticks](../controls/multiple-joysticks.md).
+To learn more about managing multiple devices at once, please read the
+chapter: [Managing multiple joysticks](../controls/multiple-joysticks.md).
 
 ## Joystick name and ID
+
 Especially when working with multiple joysticks, you will need to know the
 assigned ID and the joystick name.
 
@@ -31,7 +34,9 @@ std::string name = joystick.getDeviceName();
 ````
 
 ## Interacting with joystick 🏄
+
 ### Buttons
+
 You can listen for button presses on the joystick like this:
 
 ````c++
@@ -52,9 +57,9 @@ for joysticks. We only listen for "button down" states.
 > Note that mapping joysticks can be a bit tricky, because what "Button 1" means
 > on one model isn't exactly the same on other models. Additionally, not all joysticks
 > have the same number of buttons.
-> 
+>
 > There are open source projects to assist with mapping, for instance by SDL.
-> 
+>
 > Allowing your users/players to map their joystick might prove necessary for a good experience.
 
 ### Movement
@@ -71,10 +76,11 @@ You can explore which motion surfaces are available under the [MotionSurface cha
 
 > Just like with button presses, there's no guaranteed consistency between
 > different joystick models.
-> 
+>
 > Allowing your users/players to map their joystick might prove necessary for a good experience.
 
 ### Connection status
+
 You will often have use-cases where you need to know when a device has been disconnected
 and/or re-connected.
 

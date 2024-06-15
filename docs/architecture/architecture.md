@@ -5,6 +5,7 @@ from the library consumer's perspective. There's essentially no difference betwe
 keyboard, mouse or joystick.
 
 ## Helicopter view 🚁
+
 In every project utilizing **GLFW Inputs** there's a ``Manager`` instance. This is the class which
 connects with the GLFW window, as well as handles key presses, mouse movements, etc.
 
@@ -13,6 +14,7 @@ a (swappable) mapping. A mapping, for instance a ``KeyboardMapping``, specifies 
 map to signals.
 
 ## An example 💡
+
 Instance of ``Manager`` and ``Keyboard`` are created, and keyboard is connected to the manager.
 
 Instance of ``KeyboardMapping`` is created, where the following is specified:

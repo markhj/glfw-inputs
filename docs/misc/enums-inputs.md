@@ -3,6 +3,7 @@
 List of all the inputs in the ``Input`` enum class.
 
 ## Keyboard
+
 | Enum                                              | Description                |
 |---------------------------------------------------|----------------------------|
 | ``KeyA`` - ``KeyZ``                               | Latin alphabet letter keys |
@@ -36,15 +37,16 @@ List of all the inputs in the ``Input`` enum class.
 | ``KeyApostrophe``                                 | '                          |
 | ``KeyBracketLeft``, ``KeyBracketRight``           | [, ]                       |
 | ``KeyNumpad0`` - ``KeyNumpad9``                   | Numpad: 0-9                |
-| ``KeyNumpadAdd``                                        | Numpad: Add                |
-| ``KeyNumpadSubtract``                                       | Numpad: Subtract / minus   |
-| ``KeyNumpadMultiply``                                       | Numpad: Multiply           |
-| ``KeyNumpadDivide``                                       | Numpad: Divide             |
-| ``KeyNumpadDecimal``                                       | Numpad: Decimal (.)        |
-| ``KeyNumpadEqual``                                        | Numpad: Equal (=)          |
-| ``KeyNumpadEnter``                                        | Numpad: ENTER              |
+| ``KeyNumpadAdd``                                  | Numpad: Add                |
+| ``KeyNumpadSubtract``                             | Numpad: Subtract / minus   |
+| ``KeyNumpadMultiply``                             | Numpad: Multiply           |
+| ``KeyNumpadDivide``                               | Numpad: Divide             |
+| ``KeyNumpadDecimal``                              | Numpad: Decimal (.)        |
+| ``KeyNumpadEqual``                                | Numpad: Equal (=)          |
+| ``KeyNumpadEnter``                                | Numpad: ENTER              |
 
 ## Mouse
+
 | Enum                                | Description                                                |
 |-------------------------------------|------------------------------------------------------------|
 | ``MousePrimary``                    | The system-defined primary mouse button (normally left)    |
@@ -53,6 +55,7 @@ List of all the inputs in the ``Input`` enum class.
 | ``MouseButton1`` - ``MouseButton8`` | Numbered mouse buttons (not available on all mice)         |
 
 ## Joystick
-| Enum                                     | Description             |
-|------------------------------------------|-------------------------|
+
+| Enum                                       | Description             |
+|--------------------------------------------|-------------------------|
 | ``JoystickButton1`` - ``JoystickButton12`` | Joystick buttons 1 - 12 |

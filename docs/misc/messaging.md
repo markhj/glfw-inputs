@@ -12,23 +12,27 @@ This enum contains the various ways you can get messages.
 |--------------------------------|-----------------------------------|
 | ``MessagingMethod::Silent``    | Do nothing                        |
 | ``MessagingMethod::StdCout``   | Log to console with ``std::cout`` |
-| ``MessagingMethod::StdCerr``  | Log to console with ``std::cerr`` |
+| ``MessagingMethod::StdCerr``   | Log to console with ``std::cerr`` |
 | ``MessagingMethod::Exception`` | Throw a runtime exception         |
 
 ## Changing behavior
+
 You can modify the behavior of messages by setting ``Messaging::warnings``
 and ``Messaging::errors`` to one of the enum values listed above.
 
 For example:
+
 ````c++
 Messaging::warnings = MessagingMethod::Silent;
 ````
 
 ## Default behavior
+
 Under normal circumstances, warnings will be logged to the console with ``std::cout``
 and errors will be thrown as runtime exceptions.
 
 ## Example
+
 ````c++
 KeyboardMapping keyboardMapping;
 keyboardMapping.on(Event::ButtonPress, Input::KeyA, "invalid_SIGNAL_name!!!");

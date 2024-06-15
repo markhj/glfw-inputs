@@ -7,5 +7,7 @@ control instances.
 See the [Getting started chapter](../getting-started/basic-usage.md) to learn how to use it.
 
 ## Notes 📜
-- The decision to keep ``onMove`` as a callback on the [ControlMapping](../controls/control-mapping.md) class, instead of 
-on this ``Manager`` class, is because movement handling cannot be assumed to be the same across all mappings.
+
+- The decision to keep ``onMove`` as a callback on the [ControlMapping](../controls/control-mapping.md) class, instead
+  of
+  on this ``Manager`` class, is because movement handling cannot be assumed to be the same across all mappings.

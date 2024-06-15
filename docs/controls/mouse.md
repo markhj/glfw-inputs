@@ -7,7 +7,9 @@ Control class: ``Mouse``
 Control mapping class: ```MouseMapping```
 
 ## Example 🎉
+
 ### Mouse button press
+
 ````c++
 MouseMapping mouseMapping;
 Mouse mouse;
@@ -17,6 +19,7 @@ mouseMapping.on(Event::ButtonPress, Input::MousePrimary, "shoot");
 ````
 
 ### Mouse movement
+
 ````c++
 mouseMapping.onMove = [](MotionEvent motionEvent){
     if (motionEvent.surface == MotionSurface::Cursor) {
@@ -26,6 +29,7 @@ mouseMapping.onMove = [](MotionEvent motionEvent){
 ````
 
 # See also 📋
+
 - [All mouse-related inputs](../misc/enums-inputs.md)
 - [MotionEvent](../misc/motion-event.md)
 - [MotionSurface](../misc/motion-surface.md)

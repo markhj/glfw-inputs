@@ -7,7 +7,9 @@ Control class: ``Keyboard``
 Control mapping class: ```KeyboardMapping```
 
 ## Example 🎉
+
 ### Key press
+
 ````c++
 KeyboardMapping keyboardMapping;
 Keyboard keyboard;
@@ -17,4 +19,5 @@ keyboardMapping.on(Event::ButtonPress, Input::KeyF1, "open_menu");
 ````
 
 # See also 📋
+
 All available inputs under [Inputs](../misc/enums-inputs.md)

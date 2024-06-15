@@ -1,11 +1,14 @@
 # Basic usage 🚀
 
-In this article, we assume that you have already created a GLFW window, and stored it in a variable of type ``GLFWwindow*``.
+In this article, we assume that you have already created a GLFW window, and stored it in a variable of
+type ``GLFWwindow*``.
 
-We will demonstrate how to implement a keyboard. As mentioned in the [Architecture chapter](../architecture/architecture.md),
+We will demonstrate how to implement a keyboard. As mentioned in
+the [Architecture chapter](../architecture/architecture.md),
 it will be virtually identical to implement mouse or joystick.
 
 ## Inclusion and namespace 📂
+
 Include **GLFW Inputs** with (assuming you [installed with CMake](installation-cmake.md)):
 
 ````c++
@@ -20,6 +23,7 @@ using namespace GLFW_Inputs;
 ````
 
 ## Setting everything up 🏄
+
 We start by initializing a manager, a keyboard, its mapping and connecting them.
 
 ````c++
@@ -39,6 +43,7 @@ This concludes the setup part, where we generate all required instances and conn
 the GLFW window.
 
 ## Mapping 🔖
+
 But to actually make this useful, we have to map some keys to signals.
 
 Let's make two examples:
@@ -47,6 +52,7 @@ Let's make two examples:
 - Pressing "ESC" should exit the app
 
 We start by defining this on the keyboard mapping:
+
 ````c++
 keyboardMapping.on(Event::ButtonPress, Input::KeyA, "greet");
 keyboardMapping.on(Event::ButtonPress, Input::KeyESC, "exit");
@@ -69,6 +75,7 @@ manager.listenFor("exit", [&keepOpen]() {
 Now, when you press A or ESC, you should see some action.
 
 ## Last notes 📌
+
 Mouse and joystick are implemented in the exact same fashion.
 You'll just need to replace with the appropriate classes and inputs.
 

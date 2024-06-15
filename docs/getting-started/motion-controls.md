@@ -4,6 +4,7 @@
 mouse and joystick, but not keyboard.
 
 ## Detecting movement 🏃
+
 To detect movement, you basically just connect a function to the ``onMove``
 property. Here's an example for the mouse:
 
@@ -14,6 +15,7 @@ mouseMapping.onMove = [](MotionEvent motionEvent) {
 ````
 
 ## Type of movement 🚴
+
 But there's a bit to unpack here, mainly about the [MotionEvent](../misc/motion-event.md).
 
 At this point in time, you don't know _what_ moved. This is more relevant on joysticks than mice,
@@ -34,6 +36,7 @@ mouseMapping.onMove = [](MotionEvent motionEvent) {
 See more under [MotionSurface](../misc/motion-surface.md).
 
 ## Position and relative 📌
+
 The ``MotionEvent`` is equipped with ``position`` and ``relative`` properties.
 
 Start by noting that they are both ``std::optional``, and it's context-dependent

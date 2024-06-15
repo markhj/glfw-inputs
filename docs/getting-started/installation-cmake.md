@@ -1,9 +1,10 @@
 # Installation with CMake 🌿
 
-**GLFW Inputs** is, out of the box, not a compiled library, but 
+**GLFW Inputs** is, out of the box, not a compiled library, but
 a header-only source code library. It means it compiles together with your own application.
 
 ## Clone 🚦
+
 To install **GLFW Inputs** and use it in your project, you must start
 by cloning the repository.
 

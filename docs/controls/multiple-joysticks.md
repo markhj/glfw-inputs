@@ -3,6 +3,7 @@
 Make sure you have covered the [introduction to joysticks](../getting-started/joysticks.md) before reading this.
 
 ## User ID 💁
+
 When you with multiple joysticks or gamepads, you'll want to know which joystick was
 used when a signal is fired.
 
@@ -14,7 +15,8 @@ For instance:
 joystick.userId = 5;
 ````
 
-Now, whenever an event is fired and you catch the [ReceivedSignal](../misc/received-signal.md) struct, you'll have a reference
+Now, whenever an event is fired and you catch the [ReceivedSignal](../misc/received-signal.md) struct, you'll have a
+reference
 to the joystick instance, where you find the ``userId``.
 
 ````c++
@@ -32,7 +34,9 @@ manager.listenFor("joystick_button_x", [](ReceivedSignal signal) {
 ````
 
 ## Notes 📜
+
 ### Device ID retention
+
 Instances retain their device ID through-out the application life-time.
 
 If you have two joysticks connected which are correspondingly designated IDs ``0`` and ``1``,

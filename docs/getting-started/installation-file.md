@@ -7,6 +7,7 @@ This has some benefits and some drawbacks, but mostly it can sometimes just be e
 than dealing with CMake's discovery.
 
 ## How to do it
+
 Simply, copy the contents of the ``include/glfw-inputs`` (alternatively, the entire repository)
 from https://github.com/markhj/glfw-inputs.
 

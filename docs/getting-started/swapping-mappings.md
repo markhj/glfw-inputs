@@ -11,6 +11,7 @@ So you have one keyboard mapping which concerns itself with the in-game, and com
 separate mapping which details the menu navigation. And then you switch between them accordingly.
 
 ## How to swap ❎
+
 Swapping is essentially quite simple. You just point a control's
 mapping from one to another.
 
@@ -27,6 +28,7 @@ keyboard.mapping = &menuKeyboardMapping;
 ````
 
 ## Example 🚀
+
 A much simplified example on how the swapping would be done in practice:
 
 ````c++
