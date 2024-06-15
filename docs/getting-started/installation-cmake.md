@@ -8,7 +8,7 @@ a header-only source code library. It means it compiles together with your own a
 To install **GLFW Inputs** and use it in your project, you must start
 by cloning the repository.
 
-````
+````bash
 git clone https://github.com/markhj/glfw-inputs
 ````
 

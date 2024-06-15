@@ -17,3 +17,4 @@ For example, used to distinguish between cursor and mouse wheel movement.
 ## See also
 
 - Example of usage under [Mouse](../controls/mouse.md)
+- 

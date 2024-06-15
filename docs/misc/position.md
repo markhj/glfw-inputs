@@ -11,4 +11,3 @@ For example used for the position of the [mouse cursor](../controls/mouse.md).
 | ``x``    | ``double``                | N/A           |
 | ``y``    | ``double``                | N/A           |
 | ``z``    | ``std::optional<double>`` | N/A           |
-

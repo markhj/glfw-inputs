@@ -5,10 +5,12 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/bf8e4121154a43b8aee80f5b5e634c19)](https://app.codacy.com/gh/markhj/glfw-inputs/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?label=license)
 
-**GLFW Inputs** is a library designed to streamline and abstract various control interfaces
-for C++'s GLFW library, often used for OpenGL applications.
+**GLFW Inputs** is a library designed to streamline and abstract variou
+control interfaces  for C++'s GLFW library, often used for OpenGL
+applications.
 
 # 📢 Features
+
 The current version of **GLFW Inputs** sports the following headline features:
 
 🎮 **Keyboard, mouse**, **joystick** and **gamepad** support
@@ -16,47 +18,59 @@ The current version of **GLFW Inputs** sports the following headline features:
 🔄 **Swappable key mappings** to easily manage purpose of controls, for instance
 whether in-game or in main menu.
 
-🔉 **Signal-based** event handling separates processing of the actual physical input from translation to an action.
+🔉 **Signal-based** event handling separates processing of the actual physical
+input from translation to an action.
 
-🅰️ **Button states** for all controls to determine if a button is just pressed, held down or just released.
+🅰️ **Button states** for all controls to determine if a button is just pressed,
+held down or just released.
 
-📐 **Abstracted** such that every control type have streamlined and predictable usage
+📐 **Abstracted** such that every control type have streamlined and predictable
+usage
 
 # 🌿 Requirements
+
 GLFW Inputs require:
-*   C++ 17 or higher*
-*   CMake 3.26 or higher 
-*   GLFW3
+
+* C++ 17 or higher*
+* CMake 3.26 or higher
+* GLFW3
 
 *) _Due to use of ``std::optional`` versions prior to C++ 17 won't work_
 
 # 📖 Documentation
+
 You can read about installation, usage and more on:
 https://glfw-inputs.readthedocs.io/en/latest/
 
 # 🚗 Roadmap
+
 Features that will be implemented in the future:
 
-*   Sample apps
-*   Support for key combinations (on all control types)
-*   Manage cursor position and visibility
-*   Improved mapping of joystick buttons and axes
+* Sample apps
+* Support for key combinations (on all control types)
+* Manage cursor position and visibility
+* Improved mapping of joystick buttons and axes
 
 # ✏️ Host documentation locally
-To run host the documentation locally, you must have Python and Mkdocs already installed.
+
+To run host the documentation locally, you must have
+Python and Mkdocs already installed.
 
 Then use:
 
-````
+````bash
 python mkdocs serve
 ````
 
 On some Windows machines, it will be necessary to run with:
 
-````
+````bash
 python -m mkdocs serve
 ````
 
 # 📜 Notes
 
-*   Under the hood, some properties and methods are static. As long as you follow the manual, this can be ignored. This is due to how GLFW works. But in practice the classes can be used as instantiable objects.
+Under the hood, some properties and methods are static.
+As long as you follow the manual, this can be ignored. This is
+due to how GLFW works. But in practice the classes can be used
+as instantiable objects.
