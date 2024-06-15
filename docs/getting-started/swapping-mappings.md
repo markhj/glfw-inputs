@@ -1,14 +1,16 @@
 # Swapping mappings 🔄
 
 Imagine this scenario:
-You're building a game. In the game, arrow keys should move your character. But in the menu, you want the arrow keys
-to navigate between buttons and options.
+You're building a game. In the game, arrow keys should move your character.
+But in the menu, you want the arrow keys to navigate between buttons and
+options.
 
 You _could_ add lots of conditional statements when the arrow keys are pressed.
 Or you could completely separate what the keys do in-game and in the menu.
 
-So you have one keyboard mapping which concerns itself with the in-game, and completely
-separate mapping which details the menu navigation. And then you switch between them accordingly.
+So you have one keyboard mapping which concerns itself with the in-game,
+and completely separate mapping which details the menu navigation. And then
+you switch between them accordingly.
 
 ## How to swap ❎
 
@@ -29,7 +31,8 @@ keyboard.mapping = &menuKeyboardMapping;
 
 ## Example 🚀
 
-A much simplified example on how the swapping would be done in practice:
+A much simplified example on how the swapping
+would be done in practice:
 
 ````c++
 Keyboard keyboard;

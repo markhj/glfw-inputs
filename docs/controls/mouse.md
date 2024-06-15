@@ -1,4 +1,4 @@
-# Mouse 🐭
+# 🐭 Mouse
 
 [Supports motion](../getting-started/motion-controls.md): Yes
 

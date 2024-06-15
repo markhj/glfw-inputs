@@ -2,7 +2,8 @@
 
 ## ``Event``
 
-Enumerator used to describe a button state (whether keyboard, mouse or joystick).
+Enumerator used to describe a button state
+(whether keyboard, mouse or joystick).
 
 | Enumeration              | Description                      |
 |--------------------------|----------------------------------|
@@ -43,5 +44,5 @@ to signals.
 
 _**Only used internally in the library**_
 
-A combination of ``DeviceEvent`` and signal, used to store how hardware-specific events map
-to signals.
+A combination of ``DeviceEvent`` and signal, used to store how
+hardware-specific events map to signals.

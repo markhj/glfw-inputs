@@ -5,9 +5,9 @@ Look at the bottom to learn where you can explore the topic deeper.
 
 ## Joystick manager 🎮
 
-First of all, it's important to recognize that multiple joysticks and gamepads can
-connected simultaneously. It's also possible they can be disconnected and reconnected
-on-the-fly.
+First of all, it's important to recognize that multiple joysticks
+and gamepads can connected simultaneously. It's also possible they
+can be disconnected and reconnected on-the-fly.
 
 To help us with this, we have the ``JoystickManager`` class. With this, we can
 at any time retrieve instances of all connected devices.
@@ -54,13 +54,14 @@ manager.addJoysticks(joystickReferences);
 Note that "just pressed" and "just released" events are not recorded
 for joysticks. We only listen for "button down" states.
 
-> Note that mapping joysticks can be a bit tricky, because what "Button 1" means
-> on one model isn't exactly the same on other models. Additionally, not all joysticks
-> have the same number of buttons.
+> Note that mapping joysticks can be a bit tricky, because what "Button 1"
+> means on one model isn't exactly the same on other models. Additionally,
+> not all joysticks have the same number of buttons.
 >
 > There are open source projects to assist with mapping, for instance by SDL.
 >
-> Allowing your users/players to map their joystick might prove necessary for a good experience.
+> Allowing your users/players to map their joystick might prove necessary for
+> a good experience.
 
 ### Movement
 
@@ -72,17 +73,19 @@ joystickMapping.onMove = [](MotionEvent motionEvent) {
 };
 ````
 
-You can explore which motion surfaces are available under the [MotionSurface chapter](../misc/motion-surface.md).
+You can explore which motion surfaces are available under the
+[MotionSurface chapter](../misc/motion-surface.md).
 
 > Just like with button presses, there's no guaranteed consistency between
 > different joystick models.
 >
-> Allowing your users/players to map their joystick might prove necessary for a good experience.
+> Allowing your users/players to map their joystick might prove necessary
+> for a good experience.
 
 ### Connection status
 
-You will often have use-cases where you need to know when a device has been disconnected
-and/or re-connected.
+You will often have use-cases where you need to know when a device has
+been disconnected and/or re-connected.
 
 For this, you can use:
 

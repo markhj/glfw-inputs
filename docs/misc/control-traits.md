@@ -7,7 +7,8 @@ The traits listed below are applied to some ``Control`` types.
 Some control types are commonly seen with 2+ units connected, this is true
 for joysticks and gamepads, for instance.
 
-This trait requires the child class to support ID-assignment to every connected device.
+This trait requires the child class to support ID-assignment to every
+connected device.
 
 ## ``SupportsDynamicConnectivity``
 

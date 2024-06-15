@@ -1,4 +1,4 @@
-# Keyboard 🅱️
+# 🅱️ Keyboard
 
 [Supports motion](../getting-started/motion-controls.md): No
 

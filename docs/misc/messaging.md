@@ -1,6 +1,7 @@
 # Messaging 📢
 
-With ``Messaging`` you can decide how you want to receive warnings and errors prompted by **GLFW Inputs**.
+With ``Messaging`` you can decide how you want to receive warnings and
+errors prompted by **GLFW Inputs**.
 
 An example, would be unhandled signals or invalid signal names.
 
@@ -28,8 +29,8 @@ Messaging::warnings = MessagingMethod::Silent;
 
 ## Default behavior
 
-Under normal circumstances, warnings will be logged to the console with ``std::cout``
-and errors will be thrown as runtime exceptions.
+Under normal circumstances, warnings will be logged to the console
+with ``std::cout`` and errors will be thrown as runtime exceptions.
 
 ## Example
 

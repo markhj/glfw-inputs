@@ -3,7 +3,8 @@
 The ``ControlMapping`` is the base class for specified mappings
 for various control types such as keyboard and mouse.
 
-See [Getting started](../getting-started/basic-usage.md) chapter to learn more about practical usage.
+See [Getting started](../getting-started/basic-usage.md) chapter to learn more
+about practical usage.
 
 ## Child classes
 

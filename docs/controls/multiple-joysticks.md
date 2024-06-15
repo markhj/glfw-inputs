@@ -39,6 +39,8 @@ manager.listenFor("joystick_button_x", [](ReceivedSignal signal) {
 
 Instances retain their device ID through-out the application life-time.
 
-If you have two joysticks connected which are correspondingly designated IDs ``0`` and ``1``,
-and the first device, with ID ``0`` is disconnected, the second will _still_ have ID of ``1``.
+If you have two joysticks connected which are correspondingly designated
+IDs ``0`` and ``1``, and the first device, with ID ``0`` is disconnected,
+the second will _still_ have ID of ``1``.
+
 If the first joystick is re-connected, it will resume the ID of ``0``.

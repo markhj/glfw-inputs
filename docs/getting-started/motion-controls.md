@@ -42,14 +42,17 @@ The ``MotionEvent`` is equipped with ``position`` and ``relative`` properties.
 Start by noting that they are both ``std::optional``, and it's context-dependent
 whether they have values or not.
 
-The ``position`` provides the fixed and current absolute position. This is for example
-the exact coordinates of the cursor (within the window).
+The ``position`` provides the fixed and current absolute position.
+This is for example the exact coordinates of the cursor (within
+the window).
 
-The ``relative`` property describes how much movement has occurred since latest invocation.
-For instance, if the cursor has moved 2 pixels since last frame in an OpenGL application.
+The ``relative`` property describes how much movement has occurred
+since latest invocation. For instance, if the cursor has moved 2 pixels
+since last frame in an OpenGL application.
 
-The properties are sometimes omitted. For instance the mouse wheel doesn't have ``position``
-because it has no fixed, absolute location. It just has "scroll up" and "scroll down".
+The properties are sometimes omitted. For instance the mouse wheel doesn't
+have ``position`` because it has no fixed, absolute location. It just has
+"scroll up" and "scroll down".
 
 See under [MotionSurface](../misc/motion-surface.md) which surfaces are available,
 and which properties they have.
